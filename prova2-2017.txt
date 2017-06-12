@@ -1,0 +1,89 @@
+Unilasalle-RJ - AV2
+Aluno: Victor Souza Klopper
+Prova Av2 de Laboratorio de Sistemas Operacionais
+Professor: Alex Salgado
+1o. Semestre de 2017   Turno: ????
+--------------------------------------------------
+1-Faça um script shell que receba um nome de arquivo como parametro e 
+responde se este arquivo existe ou não.
+R. 
+
+#!/bin/bash
+file = $1
+if [ -f $file ]
+then 
+	echo -e "O $file existe"
+else
+	echo -e "O $file não existe"
+fi
+
+2-Reescreva o codigo abaixo usando a estrutura for.
+#!/bin/bash
+cont=$1
+fat=1
+while [ $cont -gt 0 ] 
+do
+   fat=$(( $fat * $cont ))
+   cont=$(( $cont - 1 ))
+done
+echo $fat
+
+R. 
+#!/bin/bash
+
+echo "Digite o número que queria saber o fatorial: "
+read num
+fat=1
+for ((i=1; i <= $num ; i++))
+do
+    fat=$(($fat*$i))
+
+done
+
+
+3-Usando estrutura de repetição, faça um script para exibir todos os arquivos
+da pasta atual com tamanho = 0kb (vazio).
+R. 
+#!/bin/bash
+for j in $(ls ~)
+do
+    find . find . -size -eq 0k
+done
+
+4-Usando estrutura de repetição, faça um script para ler a PASTA ATUAL, calcular e exibir:
+- O total de arquivos lidos
+- O total de arquivos com a extensão .txt 
+- O total de arquivos com a extensão .c
+- O total de arquivos com a extensão .py
+
+R1: 
+
+for filename in $(ls)
+do
+ext = ${filename##*\.}
+case "$ext" in
+contT = 0
+contC = 0
+contP = 0
+
+
+t)	echo "$filename : Txt  source file"
+	contT++
+;;
+c)      echo "$filename : C source file"
+	contC++
+;;
+p)      echo "$filename : Python source file"
+	contP++
+;;
+	*) echo "$filename : Unknown file type/Not processed
+;;
+	conttotal = $contT + $contC + $contP
+esac
+        conttotal = $contT + $contC + $contP
+        echo "total de arquivos é $conttotal"
+        echo "total de arquivo texto é: $contT"
+        echo "total de arquivo C é: $contC"
+        echo "total de arquivo PY é: $contP"
+done
+
